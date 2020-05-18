@@ -67,6 +67,9 @@ class DoubleCircularSlider extends StatefulWidget {
   /// otherwise, everytime the user completes a full lap, the selection restarts from 0
   final bool shouldCountLaps;
 
+  /// the size of the handler knob
+  final double handlerSize;
+
   DoubleCircularSlider(
     this.divisions,
     this.init,
@@ -85,6 +88,7 @@ class DoubleCircularSlider extends StatefulWidget {
     this.showHandlerOutter,
     this.sliderStrokeWidth,
     this.shouldCountLaps,
+    this.handlerSize,
   })  : assert(init >= 0 && init <= divisions,
             'init has to be > 0 and < divisions value'),
         assert(end >= 0 && end <= divisions,
@@ -143,6 +147,7 @@ class _DoubleCircularSliderState extends State<DoubleCircularSlider> {
           showRoundedCapInSelection: false,
           showHandlerOutter: widget.showHandlerOutter ?? true,
           shouldCountLaps: widget.shouldCountLaps ?? false,
+          handlerSize: widget.handlerSize ?? 8.0,
         ));
   }
 }

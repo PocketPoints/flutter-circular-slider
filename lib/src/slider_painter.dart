@@ -16,6 +16,7 @@ class SliderPainter extends CustomPainter {
   bool showRoundedCapInSelection;
   bool showHandlerOutter;
   double sliderStrokeWidth;
+  double handlerSize;
 
   Offset initHandler;
   Offset endHandler;
@@ -33,6 +34,7 @@ class SliderPainter extends CustomPainter {
     @required this.showRoundedCapInSelection,
     @required this.showHandlerOutter,
     @required this.sliderStrokeWidth,
+    @required this.handlerSize,
   });
 
   @override
@@ -51,12 +53,12 @@ class SliderPainter extends CustomPainter {
     // draw handlers
     if (mode == CircularSliderMode.doubleHandler) {
       initHandler = radiansToCoordinates(center, -pi / 2 + startAngle, radius);
-      canvas.drawCircle(initHandler, 8.0, handler);
+      canvas.drawCircle(initHandler, handlerSize, handler);
       canvas.drawCircle(initHandler, handlerOutterRadius, handlerOutter);
     }
 
     endHandler = radiansToCoordinates(center, -pi / 2 + endAngle, radius);
-    canvas.drawCircle(endHandler, 8.0, handler);
+    canvas.drawCircle(endHandler, handlerSize, handler);
     if (showHandlerOutter) {
       canvas.drawCircle(endHandler, handlerOutterRadius, handlerOutter);
     }
